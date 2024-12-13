@@ -10,7 +10,7 @@ public class Point {
     }
 
     // Метод
-    public double  distance(Point point) {
+    public double distance1 (Point point) {
         double corX = this.x - point.x;
         double corY = this.y - point.y;
         return Math.sqrt(corX * corX + corY * corY);
