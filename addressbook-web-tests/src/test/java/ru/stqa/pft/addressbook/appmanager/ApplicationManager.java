@@ -1,24 +1,25 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import ru.stqa.pft.addressbook.tests.TestBase;
+import ru.stqa.pft.addressbook.pages.PageManager;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ApplicationManager {
-
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private PageManager pageManager;
+
 
     public void init() {
         Selenide.open("http://localhost/addressbook/");
         sessionHelper = new SessionHelper();
         sessionHelper.login("admin", "secret");
         groupHelper = new GroupHelper();
-        navigationHelper = new NavigationHelper(groupHelper);
+        navigationHelper = new NavigationHelper();
+        pageManager = new PageManager(this);
     }
 
     public void verifyGroupCreated() {
@@ -26,10 +27,8 @@ public class ApplicationManager {
                 text("A new group has been entered into the address book."));
     }
 
-
-    @AfterEach
-    public void tearDown() {
-        TestBase.stop();
+    public PageManager getPageManager() {
+        return pageManager;
     }
 
     public GroupHelper getGroupHelper() {
@@ -39,4 +38,5 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
 }
