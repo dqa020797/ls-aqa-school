@@ -1,5 +1,4 @@
 package ru.stqa.pft.addressbook.pages;
-
 import org.junit.jupiter.api.BeforeEach;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -29,6 +28,11 @@ public class GroupsPage extends BasePage {
 
     public GroupsPage goToGroupPage() {
         app.getNavigationHelper().goToGroupPage();
+        return this;
+    }
+
+    public GroupsPage redactionGroup(GroupData group) {
+        app.getGroupHelper().redactionGroup(group);
         return this;
     }
 }

@@ -35,6 +35,7 @@ public class ApplicationManager {
         return groupHelper;
     }
 
+
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }

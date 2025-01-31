@@ -12,4 +12,5 @@ public class GroupCreationTest extends TestBase {
         app.getPageManager().groupsPage().createGroup(group);
         app.verifyGroupCreated();
     }
+
 }
