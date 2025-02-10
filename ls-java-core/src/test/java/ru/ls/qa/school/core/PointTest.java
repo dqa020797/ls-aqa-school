@@ -1,6 +1,7 @@
+package ru.ls.qa.school.core;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.ls.qa.school.core.Point;
 
 public class PointTest {
 
@@ -12,10 +13,8 @@ public class PointTest {
         double distance = point1.distance(point2);
         Assertions.assertEquals(2.8284271247461903, distance);
     }
-
-    @Test
     public void negativeTest ( ) {
-        Point point1 = new Point(-2, -1);
+        Point point1 = new Point(-3, -3);
         Point point2 = new Point(-5,-5);
 
         double negdistance = point1.distance(point2);
