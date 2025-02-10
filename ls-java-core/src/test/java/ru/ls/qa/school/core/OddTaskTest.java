@@ -1,6 +1,5 @@
-import ru.ls.qa.school.core.OddTask;
-import ru.ls.qa.school.core.Point;
-import org.junit.jupiter.api.Assertions;
+package ru.ls.qa.school.core;
+
 import org.junit.jupiter.api.Test;
 
 
