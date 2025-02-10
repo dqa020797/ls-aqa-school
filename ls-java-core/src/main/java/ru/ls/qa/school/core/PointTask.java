@@ -1,5 +1,7 @@
 package ru.ls.qa.school.core;
 public class PointTask {
+    public static int distance;
+
     public static void main(String[] args) {
         Point point1 = new Point(3, 4);
         Point point2 = new Point(2,2);
