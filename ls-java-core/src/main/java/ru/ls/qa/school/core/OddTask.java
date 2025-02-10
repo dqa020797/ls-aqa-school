@@ -1,6 +1,5 @@
 package ru.ls.qa.school.core;
 
-import java.io.Console;
 import java.util.Scanner;
 
 public class OddTask {
@@ -18,9 +17,6 @@ public class OddTask {
             int number = console.nextInt();
             boolean result = isOdd(number);
             System.out.println("Число " + number + "." + " Ваш результат: " + result);
-
         }
-
     }
-
 }
