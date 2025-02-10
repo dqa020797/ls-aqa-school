@@ -7,7 +7,6 @@
     <groupId>ru.ls.qa.school.addressbook</groupId>
     <artifactId>addressbook-web-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -22,35 +21,41 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit 5 -->
+        <!-- JUnit 5 for unit testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Core library -->
+        <dependency>
+            <groupId>ru.ls.qa.school.core</groupId>
+            <artifactId>ls-java-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Selenium (if needed explicitly, otherwise Selenide includes it) -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.13.0</version>
         </dependency>
+
+        <!-- Selenium DevTools (specific for your browser version) -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.4.11</version>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v131</artifactId>
+            <version>4.13.0</version>
         </dependency>
+
+        <!-- SLF4J for logging -->
         <dependency>
-            <groupId>ru.ls.qa.school.core</groupId>
-            <artifactId>ls-java-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <!-- Add this if the custom dependency is hosted in a private repository -->
-        <repository>
-            <id>private-repo</id>
-            <url>http://localhost/addressbook/</url>
-        </repository>
-    </repositories>
 </project>
