@@ -11,11 +11,6 @@ public class GroupsPage extends BasePage {
         super(app);
     }
 
-    @BeforeEach
-    public void openPage() {
-        open("http://localhost/addressbook/group.php");
-    }
-
     public GroupsPage createGroup(GroupData group) {
         app.getGroupHelper().createGroup(group);
         return this;

@@ -12,6 +12,7 @@ public class PointTest {
         double distance = point1.distance1 (point2);
         Assertions.assertEquals(2.8284271247461903, distance);
     }
+
     public void negativeTest ( ) {
         Point point1 = new Point(-3, -3);
         Point point2 = new Point(-5,-5);

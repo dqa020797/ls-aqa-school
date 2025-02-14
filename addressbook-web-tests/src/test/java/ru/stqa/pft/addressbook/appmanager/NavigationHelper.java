@@ -9,4 +9,8 @@ public class NavigationHelper extends BaseHelper {
         click(find("[href='group.php']"));
     }
 
+    public void goToNewContactPage() {
+        click(find("[href='edit.php']"));
+    }
+
 }

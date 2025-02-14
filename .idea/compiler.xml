@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="addressbook-web-tests" />
         <module name="ls-java-core" />
+        <module name="addressbook-web-tests (1)" />
       </profile>
     </annotationProcessing>
   </component>

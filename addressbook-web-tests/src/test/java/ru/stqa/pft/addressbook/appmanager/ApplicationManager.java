@@ -11,6 +11,7 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private PageManager pageManager;
+    private NewContactHelper newContactHelper;
 
 
     public void init() {
@@ -20,12 +21,18 @@ public class ApplicationManager {
         groupHelper = new GroupHelper();
         navigationHelper = new NavigationHelper();
         pageManager = new PageManager(this);
+        newContactHelper = new NewContactHelper();
     }
 
     public void verifyGroupCreated() {
         $("[class='msgbox']").shouldHave(
                 text("A new group has been entered into the address book."));
     }
+
+    public void verifyContactCreated() {
+        $("[class='msgbox']").shouldHave(text("Information entered into address book."));
+    }
+
 
     public PageManager getPageManager() {
         return pageManager;
@@ -39,5 +46,10 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
+    public NewContactHelper getNewContactHelper() {
+        return newContactHelper;
+    }
+
 
 }

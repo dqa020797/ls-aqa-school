@@ -9,6 +9,7 @@ public class PageManager {
 
     public PageManager(ApplicationManager app) {
         this.groupsPage = new GroupsPage(app);
+
     }
 
     public GroupsPage groupsPage() {
