@@ -1,35 +1,35 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import ru.stqa.pft.addressbook.tests.TestBase;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 
 public class ApplicationManager {
 
     private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private CreateGroupHelper createGroupHelper;
+    private NavigationHelper navigationHelper;
 
     public void init() {
         Selenide.open("http://localhost/addressbook/");
         sessionHelper = new SessionHelper();
         sessionHelper.login("admin", "secret");
+        initializeHelpers();
+
+    }
+
+    private void initializeHelpers() {
         groupHelper = new GroupHelper();
-        navigationHelper = new NavigationHelper(groupHelper);
-    }
-
-    public void verifyGroupCreated() {
-        $("[class='msgbox']").shouldHave(
-                text("A new group has been entered into the address book."));
+        createGroupHelper = new CreateGroupHelper();
+        navigationHelper = new NavigationHelper();
     }
 
 
-    @AfterEach
-    public void tearDown() {
-        TestBase.stop();
+    public void stop() {
+        Selenide.closeWebDriver();
+    }
+
+    public CreateGroupHelper getCreateGroupHelper() {
+        return createGroupHelper;
     }
 
     public GroupHelper getGroupHelper() {

@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class BaseHelper {
@@ -16,5 +17,9 @@ public class BaseHelper {
 
     protected SelenideElement find(String cssSelector) {
         return $(cssSelector);
+    }
+
+    public static void getTextFromMsgBox() {
+        $("[class='msgbox']").shouldHave( text("A new group has been entered into the address book."));
     }
 }
