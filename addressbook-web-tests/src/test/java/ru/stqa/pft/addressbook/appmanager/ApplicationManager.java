@@ -14,7 +14,6 @@ public class ApplicationManager {
         sessionHelper = new SessionHelper();
         sessionHelper.login("admin", "secret");
         initializeHelpers();
-
     }
 
     private void initializeHelpers() {
