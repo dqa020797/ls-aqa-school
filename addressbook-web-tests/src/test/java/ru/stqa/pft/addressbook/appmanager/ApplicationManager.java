@@ -8,6 +8,8 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
 
+
+
     public void init() {
         initializeHelpers();
         Selenide.open("http://localhost/addressbook/");
@@ -24,15 +26,15 @@ public class ApplicationManager {
         Selenide.closeWebDriver();
     }
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {
         return groupHelper;
     }
 
-    public NavigationHelper getNavigationHelper() {
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
 
-    public SessionHelper getSessionHelper() {
+    public SessionHelper session() {
         return sessionHelper;
     }
 }

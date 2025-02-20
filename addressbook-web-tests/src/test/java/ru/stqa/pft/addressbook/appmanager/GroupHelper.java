@@ -11,8 +11,11 @@ public class GroupHelper extends BaseHelper {
         $("[class='msgbox']").shouldHave(text("A new group has been entered into the address book."));
     }
 
-    public void fillCreateForm(GroupData group) {
+    public void createNew() {
         click($("[name='new']"));
+    }
+
+    public void fillCreateForm(GroupData group) {
         type($("[name='group_name']"), group.getName());
         type($("[name='group_header']"), group.getHeader());
         type($("[name='group_footer']"), group.getFooter());
@@ -30,7 +33,7 @@ public class GroupHelper extends BaseHelper {
         click($("[href='group.php']"));
     }
 
-    public void deleteGroup() {
+    public void delete() {
         click($("[name='delete']"));
     }
 }
