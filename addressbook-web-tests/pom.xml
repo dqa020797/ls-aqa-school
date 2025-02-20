@@ -11,46 +11,13 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <!-- Selenide for browser automation -->
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>6.19.1</version>
-            <scope>test</scope>
-        </dependency>
+    <parent>
+        <groupId>ru.ls.qa.school</groupId>
+        <artifactId>ls-aqa-school</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-        <!-- JUnit 5 -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.4.11</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.ls.qa.school.core</groupId>
-            <artifactId>ls-java-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-
-    <repositories>
-        <!-- Add this if the custom dependency is hosted in a private repository -->
-        <repository>
-            <id>private-repo</id>
-            <url>http://localhost/addressbook/</url>
-        </repository>
-    </repositories>
 </project>
