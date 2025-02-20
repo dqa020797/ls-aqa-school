@@ -1,20 +1,22 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
     static public ApplicationManager app = new ApplicationManager();
 
-    @BeforeEach
-    void setUp() {
+    @BeforeAll
+    static void setUp() {
         app.init();
+
+        app.getSessionHelper().login("admin", "secret");
     }
 
-    @AfterEach
-    public void tearDown() {
+    @AfterAll
+    public static void tearDown() {
         app.stop();
     }
 }

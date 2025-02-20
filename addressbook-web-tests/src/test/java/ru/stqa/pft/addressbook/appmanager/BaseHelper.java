@@ -2,24 +2,16 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.visible;
 
 public class BaseHelper {
 
     protected void type(SelenideElement element, String text) {
-        element.val(text);
+        click(element);
+        element.setValue(text);
     }
 
     protected void click(SelenideElement element) {
-        element.click();
-    }
-
-    protected SelenideElement find(String cssSelector) {
-        return $(cssSelector);
-    }
-
-    public static void getTextFromMsgBox() {
-        $("[class='msgbox']").shouldHave( text("A new group has been entered into the address book."));
+        element.shouldBe(visible).click();
     }
 }

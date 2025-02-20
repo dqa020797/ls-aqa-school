@@ -6,19 +6,16 @@ public class ApplicationManager {
 
     private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
-    private CreateGroupHelper createGroupHelper;
     private NavigationHelper navigationHelper;
 
     public void init() {
-        Selenide.open("http://localhost/addressbook/");
-        sessionHelper = new SessionHelper();
-        sessionHelper.login("admin", "secret");
         initializeHelpers();
+        Selenide.open("http://localhost/addressbook/");
     }
 
     private void initializeHelpers() {
+        sessionHelper = new SessionHelper();
         groupHelper = new GroupHelper();
-        createGroupHelper = new CreateGroupHelper();
         navigationHelper = new NavigationHelper();
     }
 
@@ -27,15 +24,15 @@ public class ApplicationManager {
         Selenide.closeWebDriver();
     }
 
-    public CreateGroupHelper getCreateGroupHelper() {
-        return createGroupHelper;
-    }
-
     public GroupHelper getGroupHelper() {
         return groupHelper;
     }
 
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public SessionHelper getSessionHelper() {
+        return sessionHelper;
     }
 }
