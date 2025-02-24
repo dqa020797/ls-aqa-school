@@ -7,6 +7,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
+    private ContactHelper contactHelper;
 
 
     public void init() {
@@ -18,6 +19,7 @@ public class ApplicationManager {
         sessionHelper = new SessionHelper();
         groupHelper = new GroupHelper();
         navigationHelper = new NavigationHelper();
+        contactHelper = new ContactHelper();
     }
 
 
@@ -25,11 +27,19 @@ public class ApplicationManager {
         Selenide.closeWebDriver();
     }
 
-    public GroupHelper group() {
+    public GroupHelper group () {
         return groupHelper;
     }
 
-    public NavigationHelper goTo() {
+    public ContactHelper contact () {
+        return contactHelper;
+    }
+
+    public NavigationHelper goToGroupsPage() {
+        return navigationHelper;
+    }
+
+    public NavigationHelper goToContactPage() {
         return navigationHelper;
     }
 

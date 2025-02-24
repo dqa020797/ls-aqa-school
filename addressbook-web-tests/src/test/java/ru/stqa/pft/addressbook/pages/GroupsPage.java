@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.pages;
 
 import org.junit.jupiter.api.BeforeEach;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import static com.codeborne.selenide.Selenide.open;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
@@ -10,7 +9,7 @@ import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
 public class GroupsPage extends BasePage {
     @BeforeEach
-    public void openPage() {
+    public void openEditGroupPage() {
         open("http://localhost/addressbook/group.php");
     }
 
@@ -33,7 +32,7 @@ public class GroupsPage extends BasePage {
     }
 
     public GroupsPage goToGroupPage() {
-        app.goTo()
+        app.goToGroupsPage()
            .groups();
         return this;
     }

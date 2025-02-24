@@ -7,4 +7,7 @@ public class NavigationHelper extends BaseHelper {
     public void groups() {
         click($("[href='group.php']"));
     }
+    public void addNew() {
+        click($("[href='edit.php']"));
+    }
 }

@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
 
-    public void checkTextFromMsgBox() {
+    public void checkCreateGroupTextFromMsgBox() {
         $("[class='msgbox']").shouldHave(text("A new group has been entered into the address book."));
     }
 
@@ -34,6 +34,7 @@ public class GroupHelper extends BaseHelper {
     public void submitCreate() {
         click($("[name='submit']"));
     }
+
 
     public void submitUpdate() {
         click($("[name='update']"));

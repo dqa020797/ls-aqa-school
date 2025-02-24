@@ -6,7 +6,7 @@ import static ru.stqa.pft.addressbook.tests.TestBase.app;
 
 public class GroupCreatePage extends BasePage {
 
-    public GroupCreatePage fillForm(GroupData group) {
+    public GroupCreatePage fillGroupForm(GroupData group) {
         app.group()
            .fillCreateForm(group);
         return this;

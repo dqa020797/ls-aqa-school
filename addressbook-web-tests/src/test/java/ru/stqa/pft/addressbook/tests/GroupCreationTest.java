@@ -5,15 +5,15 @@ import ru.stqa.pft.addressbook.model.GroupData;
 public class GroupCreationTest extends TestBase {
 
     @Test
-    void groupCreation() {
+    void groupCreationTest() {
         GroupData group = new GroupData("Test Group", "Test Header", "Test Footer");
         pages.groups()
              .goToGroupPage()
              .createNewGroup()
-             .fillForm(group)
+             .fillGroupForm(group)
              .submitCreate();
         app.group()
-           .checkTextFromMsgBox();
+           .checkCreateGroupTextFromMsgBox();
 
     }
 }
