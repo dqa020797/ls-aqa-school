@@ -4,7 +4,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
 
-public class ContactCreatePage extends BasePage {
+public class ContactCreatePage {
 
 
     public ContactCreatePage fillContactForm (ContactData contact) {

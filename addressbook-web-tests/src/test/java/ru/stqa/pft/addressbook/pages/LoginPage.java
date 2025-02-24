@@ -5,7 +5,7 @@ import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
 
     public LoginPage(ApplicationManager app) {
 //        super(app);

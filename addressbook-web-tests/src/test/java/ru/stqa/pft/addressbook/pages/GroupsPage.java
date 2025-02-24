@@ -7,7 +7,7 @@ import static ru.stqa.pft.addressbook.tests.TestBase.app;
 import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
 
-public class GroupsPage extends BasePage {
+public class GroupsPage {
     @BeforeEach
     public void openEditGroupPage() {
         open("http://localhost/addressbook/group.php");

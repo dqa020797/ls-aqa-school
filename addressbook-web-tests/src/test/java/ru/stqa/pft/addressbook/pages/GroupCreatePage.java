@@ -4,7 +4,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
 
-public class GroupCreatePage extends BasePage {
+public class GroupCreatePage {
 
     public GroupCreatePage fillGroupForm(GroupData group) {
         app.group()
