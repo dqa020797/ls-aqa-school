@@ -12,6 +12,7 @@ public class BaseHelper {
     }
 
     protected void click(SelenideElement element) {
-        element.shouldBe(visible).click();
+        element.shouldBe(visible)
+               .click();
     }
 }

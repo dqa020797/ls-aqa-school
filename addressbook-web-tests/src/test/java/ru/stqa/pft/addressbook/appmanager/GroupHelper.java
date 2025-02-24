@@ -7,12 +7,25 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
 
-    public void checkTextFromMsgBox() {
+    public void checkCreateGroupTextFromMsgBox() {
         $("[class='msgbox']").shouldHave(text("A new group has been entered into the address book."));
     }
 
-    public void fillCreateForm(GroupData group) {
+    public void createNew() {
         click($("[name='new']"));
+    }
+
+    public void editGroup() {
+        click($("[name='edit']"));
+    }
+
+    public void fillCreateForm(GroupData group) {
+        type($("[name='group_name']"), group.getName());
+        type($("[name='group_header']"), group.getHeader());
+        type($("[name='group_footer']"), group.getFooter());
+    }
+
+    public void EditForm(GroupData group) {
         type($("[name='group_name']"), group.getName());
         type($("[name='group_header']"), group.getHeader());
         type($("[name='group_footer']"), group.getFooter());
@@ -20,6 +33,11 @@ public class GroupHelper extends BaseHelper {
 
     public void submitCreate() {
         click($("[name='submit']"));
+    }
+
+
+    public void submitUpdate() {
+        click($("[name='update']"));
     }
 
     public void selectGroup() {
@@ -30,7 +48,7 @@ public class GroupHelper extends BaseHelper {
         click($("[href='group.php']"));
     }
 
-    public void deleteGroup() {
+    public void delete() {
         click($("[name='delete']"));
     }
 }
