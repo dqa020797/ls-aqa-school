@@ -15,7 +15,17 @@ public class GroupHelper extends BaseHelper {
         click($("[name='new']"));
     }
 
+    public void editGroup() {
+        click($("[name='edit']"));
+    }
+
     public void fillCreateForm(GroupData group) {
+        type($("[name='group_name']"), group.getName());
+        type($("[name='group_header']"), group.getHeader());
+        type($("[name='group_footer']"), group.getFooter());
+    }
+
+    public void EditForm(GroupData group) {
         type($("[name='group_name']"), group.getName());
         type($("[name='group_header']"), group.getHeader());
         type($("[name='group_footer']"), group.getFooter());
@@ -23,6 +33,10 @@ public class GroupHelper extends BaseHelper {
 
     public void submitCreate() {
         click($("[name='submit']"));
+    }
+
+    public void submitUpdate() {
+        click($("[name='update']"));
     }
 
     public void selectGroup() {

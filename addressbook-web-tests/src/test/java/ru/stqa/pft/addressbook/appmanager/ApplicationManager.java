@@ -9,7 +9,6 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
 
 
-
     public void init() {
         initializeHelpers();
         Selenide.open("http://localhost/addressbook/");

@@ -2,14 +2,16 @@ package ru.stqa.pft.addressbook.pages;
 
 public class PageManager {
 
-    private ContactsPage contactsPage;
+    private HomePage homePage;
     private GroupsPage groupsPage;
-    private GroupPage groupPage;
     private GroupCreatePage groupCreatePage;
+    private GroupPage groupPage;
 
 
     public PageManager() {
         this.groupsPage = new GroupsPage();
+        this.groupPage = new GroupPage();
+        this.groupCreatePage = new GroupCreatePage();
     }
 
     public GroupsPage groups() {
@@ -24,11 +26,7 @@ public class PageManager {
         return groupCreatePage;
     }
 
-    public ContactsPage contacts() {
-        return contactsPage;
-    }
-
-    public ContactsPage home() {
-        return contactsPage;
+    public HomePage home() {
+        return homePage;
     }
 }

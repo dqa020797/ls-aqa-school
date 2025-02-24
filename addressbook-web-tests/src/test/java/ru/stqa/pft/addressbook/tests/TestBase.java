@@ -13,8 +13,11 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         app.init();
+
         pages = new PageManager();
-        app.session().login("admin", "secret");
+
+        app.session()
+           .login("admin", "secret");
     }
 
     @AfterAll

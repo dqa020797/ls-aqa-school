@@ -15,22 +15,33 @@ public class GroupsPage extends BasePage {
     }
 
     public GroupCreatePage createNewGroup() {
-        app.group().createNew();
+        app.group()
+           .createNew();
         return pages.groupCreate();
     }
 
     public GroupsPage deleteGroup() {
-        app.group().delete();
+        app.group()
+           .delete();
+        return this;
+    }
+
+    public GroupsPage selectGroup() {
+        app.group()
+           .selectGroup();
         return this;
     }
 
     public GroupsPage goToGroupPage() {
-        app.goTo().groups();
+        app.goTo()
+           .groups();
         return this;
     }
 
-    public GroupsPage redactionGroup(GroupData group) {
-        // app.getGroupHelper().redactionGroup(group);
-        return this;
+    public GroupsPage editGroup() {
+        app.group()
+           .editGroup();
+        return pages.groups();
     }
+
 }

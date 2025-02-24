@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.visible;
 
 public class BaseHelper {
@@ -11,6 +12,7 @@ public class BaseHelper {
     }
 
     protected void click(SelenideElement element) {
-        element.shouldBe(visible).click();
+        element.shouldBe(visible)
+               .click();
     }
 }
