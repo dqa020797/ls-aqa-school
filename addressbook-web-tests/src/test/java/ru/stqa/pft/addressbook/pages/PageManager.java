@@ -10,13 +10,14 @@ public class PageManager {
 
 
 
-    public PageManager() {
-        this.groupsPage = new GroupsPage();
-        this.groupPage = new GroupPage();
-        this.groupCreatePage = new GroupCreatePage();
-        this.contactCreatePage = new ContactCreatePage();
-    }
 
+    public PageManager() {
+        groupsPage = new GroupsPage();
+        groupPage = new GroupPage();
+        groupCreatePage = new GroupCreatePage();
+        contactCreatePage = new ContactCreatePage();
+        homePage = new HomePage();
+    }
     public GroupsPage groups() {
         return groupsPage;
     }
@@ -29,11 +30,9 @@ public class PageManager {
         return groupCreatePage;
     }
 
-    public ContactCreatePage ContactCreatePage() {
-        return contactCreatePage;
+    public ContactCreatePage contactCreate() { return contactCreatePage;
+    }
+    public HomePage home() { return homePage;
     }
 
-    public HomePage home() {
-        return homePage;
-    }
 }

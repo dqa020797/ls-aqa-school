@@ -1,44 +1,30 @@
 package ru.stqa.pft.addressbook.pages;
-
-import org.junit.jupiter.api.BeforeEach;
-
-import static com.codeborne.selenide.Selenide.open;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
 import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
 
 public class GroupsPage {
-    @BeforeEach
-    public void openEditGroupPage() {
-        open("http://localhost/addressbook/group.php");
-    }
 
     public GroupCreatePage createNewGroup() {
-        app.group()
+        app.getGroupHelper()
            .createNew();
         return pages.groupCreate();
     }
 
     public GroupsPage deleteGroup() {
-        app.group()
+        app.getGroupHelper()
            .delete();
         return this;
     }
 
     public GroupsPage selectGroup() {
-        app.group()
+        app.getGroupHelper()
            .selectGroup();
         return this;
     }
 
-    public GroupsPage goToGroupPage() {
-        app.goToGroupsPage()
-           .groups();
-        return this;
-    }
-
     public GroupsPage editGroup() {
-        app.group()
+        app.getGroupHelper()
            .editGroup();
         return pages.groups();
     }

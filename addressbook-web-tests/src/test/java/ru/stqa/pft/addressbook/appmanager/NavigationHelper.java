@@ -4,10 +4,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class NavigationHelper extends BaseHelper {
 
-    public void groups() {
+    public void goToGroupsPage() {
         click($("[href='group.php']"));
     }
-    public void addNew() {
+    public void goToNewContactPage() {
         click($("[href='edit.php']"));
     }
 }

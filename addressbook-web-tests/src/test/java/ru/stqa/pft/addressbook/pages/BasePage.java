@@ -1,6 +1,6 @@
-package ru.stqa.pft.addressbook.pages;
-
-
-public abstract class BasePage {
-
-}
+//package ru.stqa.pft.addressbook.pages;
+//
+//
+//public abstract class BasePage {
+//
+//}

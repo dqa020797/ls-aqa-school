@@ -27,23 +27,20 @@ public class ApplicationManager {
         Selenide.closeWebDriver();
     }
 
-    public GroupHelper group () {
+    public GroupHelper getGroupHelper() {
         return groupHelper;
     }
 
-    public ContactHelper contact () {
+    public ContactHelper getContactHelper() {
         return contactHelper;
     }
 
-    public NavigationHelper goToGroupsPage() {
+    public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
 
-    public NavigationHelper goToContactPage() {
-        return navigationHelper;
-    }
 
-    public SessionHelper session() {
+    public SessionHelper getSessionHelper() {
         return sessionHelper;
     }
 }

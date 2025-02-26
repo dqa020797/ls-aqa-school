@@ -8,15 +8,13 @@ import ru.stqa.pft.addressbook.pages.PageManager;
 public class TestBase {
 
     public static ApplicationManager app = new ApplicationManager();
-    public static PageManager pages;
+    public static PageManager pages = new PageManager();
 
     @BeforeAll
     static void setUp() {
         app.init();
 
-        pages = new PageManager();
-
-        app.session()
+        app.getSessionHelper()
            .login("admin", "secret");
     }
 

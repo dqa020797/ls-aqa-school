@@ -6,12 +6,12 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class CreateNewContact extends TestBase {
     @Test
     void contactCreationTest() {
-        ContactData contact = new ContactData("Andrey", "Ivanovich", "Ivanov");
-        pages.ContactCreatePage()
-             .goToContactPage()
-             .fillContactForm(contact)
+        pages.home()
+             .goToContactPage();
+        pages.contactCreate()
+             .fillContactForm(new ContactData("Andrey", "Ivanovich", "Ivanov"))
              .submitEnter();
-        app.contact()
+        app.getContactHelper()
            .checkCreateContactTextFromMsgBox();
 
     }

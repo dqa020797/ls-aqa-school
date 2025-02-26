@@ -7,13 +7,13 @@ import static ru.stqa.pft.addressbook.tests.TestBase.app;
 public class GroupPage {
 
     public GroupPage editForm (GroupData group) {
-        app.group()
-           .EditForm(group);
+        app.getGroupHelper()
+           .editForm(group);
         return this;
     }
 
     public void submitUpdate() {
-        app.group()
+        app.getGroupHelper()
            .submitUpdate();
     }
 }
