@@ -1,15 +1,12 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import ru.stqa.pft.addressbook.enums.MessageInBoxEnum;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
-
-    public void checkCreateGroupTextFromMsgBox() {
-        $("[class='msgbox']").shouldHave(text("A new group has been entered into the address book."));
-    }
 
     public void createNew() {
         click($("[name='new']"));

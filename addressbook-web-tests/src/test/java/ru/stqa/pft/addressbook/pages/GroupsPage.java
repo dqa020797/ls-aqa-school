@@ -3,7 +3,7 @@ import static ru.stqa.pft.addressbook.tests.TestBase.app;
 import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
 
-public class GroupsPage {
+public class GroupsPage extends BasePage {
 
     public GroupCreatePage createNewGroup() {
         app.getGroupHelper()
@@ -23,10 +23,10 @@ public class GroupsPage {
         return this;
     }
 
-    public GroupsPage editGroup() {
+    public GroupPage editGroup() {
         app.getGroupHelper()
            .editGroup();
-        return pages.groups();
+        return pages.group();
     }
 
 }

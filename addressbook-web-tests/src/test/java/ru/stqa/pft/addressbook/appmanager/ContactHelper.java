@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import ru.stqa.pft.addressbook.enums.MessageInBoxEnum;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,10 +16,5 @@ public class ContactHelper extends BaseHelper {
 
     public void submitEnter() {
         click($("[name='submit']"));
-    }
-
-    public void checkCreateContactTextFromMsgBox() {
-        $("[class='msgbox']").shouldHave(text("Information entered into address book.\n" +
-                                                      "add next or return to home page."));
     }
 }

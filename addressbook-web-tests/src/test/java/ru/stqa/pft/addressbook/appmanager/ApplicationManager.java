@@ -39,7 +39,6 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-
     public SessionHelper getSessionHelper() {
         return sessionHelper;
     }

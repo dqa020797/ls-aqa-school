@@ -2,21 +2,18 @@ package ru.stqa.pft.addressbook.pages;
 
 public class PageManager {
 
-    private HomePage homePage;
+    private ContactsPage contactsPage;
     private GroupsPage groupsPage;
     private GroupCreatePage groupCreatePage;
     private GroupPage groupPage;
     private ContactCreatePage contactCreatePage;
-
-
-
 
     public PageManager() {
         groupsPage = new GroupsPage();
         groupPage = new GroupPage();
         groupCreatePage = new GroupCreatePage();
         contactCreatePage = new ContactCreatePage();
-        homePage = new HomePage();
+        contactsPage = new ContactsPage();
     }
     public GroupsPage groups() {
         return groupsPage;
@@ -32,7 +29,10 @@ public class PageManager {
 
     public ContactCreatePage contactCreate() { return contactCreatePage;
     }
-    public HomePage home() { return homePage;
+
+    public ContactsPage home() { return contactsPage;
     }
 
+    public ContactsPage contacts() { return contactsPage;
+    }
 }

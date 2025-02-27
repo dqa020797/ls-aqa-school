@@ -9,13 +9,10 @@ public class GroupRedactionTest extends TestBase {
     @Test
     void GroupRedactionTest() {
         pages.home()
-             .goToGroupsPage();
-        pages.groups()
+             .goToGroupsPage()
              .selectGroup()
-             .editGroup();
-        pages.group()
+             .editGroup()
              .editForm(new GroupData("Test Group Edit", "Test Header Edit", "Test Footer Edit"))
              .submitUpdate();
-
     }
 }
