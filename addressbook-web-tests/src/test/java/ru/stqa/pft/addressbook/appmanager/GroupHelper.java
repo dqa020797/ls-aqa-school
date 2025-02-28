@@ -1,15 +1,16 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import ru.stqa.pft.addressbook.enums.MessageInBoxEnum;
+import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
 
+    SelenideElement newGroupButton = $("[name='new']");
+
     public void createNew() {
-        click($("[name='new']"));
+        click(newGroupButton);
     }
 
     public void editGroup() {
@@ -22,22 +23,15 @@ public class GroupHelper extends BaseHelper {
         type($("[name='group_footer']"), group.getFooter());
     }
 
-    public void editForm(GroupData group) {
-        type($("[name='group_name']"), group.getName());
-        type($("[name='group_header']"), group.getHeader());
-        type($("[name='group_footer']"), group.getFooter());
-    }
-
     public void submitCreate() {
         click($("[name='submit']"));
     }
-
 
     public void submitUpdate() {
         click($("[name='update']"));
     }
 
-    public void  selectGroup() {
+    public void selectGroup() {
         click($("[name='selected[]']"));
     }
 

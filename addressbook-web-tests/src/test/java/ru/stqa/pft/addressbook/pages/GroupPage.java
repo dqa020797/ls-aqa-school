@@ -8,7 +8,7 @@ public class GroupPage {
 
     public GroupPage editForm (GroupData group) {
         app.getGroupHelper()
-           .editForm(group);
+           .fillGroupForm(group);
         return this;
     }
 
