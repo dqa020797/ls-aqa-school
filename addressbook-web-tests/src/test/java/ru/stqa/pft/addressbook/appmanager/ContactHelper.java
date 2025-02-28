@@ -1,12 +1,14 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import ru.stqa.pft.addressbook.enums.MessageInBoxEnum;
+import com.codeborne.selenide.SelenideElement;
+
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ContactHelper extends BaseHelper {
+
+   private SelenideElement submitEnterButton = $("[name='submit']");
 
     public void fillContactForm (ContactData contact) {
         type($("[name='firstname']"), contact.getFirstName());
@@ -15,6 +17,6 @@ public class ContactHelper extends BaseHelper {
     }
 
     public void submitEnter() {
-        click($("[name='submit']"));
+        click(submitEnterButton);
     }
 }

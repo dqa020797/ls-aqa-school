@@ -10,8 +10,9 @@ public class GroupCreationTest extends TestBase {
     @Test
     void groupCreationTest() {
         pages.home()
-             .goToGroupsPage();
-        pages.groups().createNewGroup().fillGroupForm(new GroupData("Test Group", "Test Header", "Test Footer"))
+             .goToGroupsPage()
+             .createNewGroup()
+             .fillGroupForm(new GroupData("Test Group", "Test Header", "Test Footer"))
              .submitCreate();
         app.getGroupHelper()
            .checkTextFromMsgBox(GROUP_IS_CREATED);

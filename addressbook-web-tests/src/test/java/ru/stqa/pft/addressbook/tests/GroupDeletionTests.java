@@ -7,8 +7,7 @@ public class GroupDeletionTests extends TestBase {
     @Test
     public void deleteGroupTest() {
         pages.home()
-             .goToGroupsPage();
-        pages.groups()
+             .goToGroupsPage()
              .selectGroup()
              .deleteGroup();
     }

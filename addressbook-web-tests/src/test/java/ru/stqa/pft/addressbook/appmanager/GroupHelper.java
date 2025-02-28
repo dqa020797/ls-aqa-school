@@ -7,14 +7,18 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
 
-    SelenideElement newGroupButton = $("[name='new']");
+    private SelenideElement newGroupButton = $("[name='new']");
+    private SelenideElement deleteGroupButton = $("[name='delete']");
+    private SelenideElement submitGroupButton = $("[name='submit']");
+    private SelenideElement editGroupButton = $("[name='edit']");
+    private SelenideElement submitUpdateButton = $("[name='update']");
+    private SelenideElement selectGroupButton = $("[name='selected[]']");
 
     public void createNew() {
         click(newGroupButton);
     }
-
     public void editGroup() {
-        click($("[name='edit']"));
+        click(editGroupButton);
     }
 
     public void fillGroupForm(GroupData group) {
@@ -22,20 +26,19 @@ public class GroupHelper extends BaseHelper {
         type($("[name='group_header']"), group.getHeader());
         type($("[name='group_footer']"), group.getFooter());
     }
-
     public void submitCreate() {
-        click($("[name='submit']"));
+        click(submitGroupButton);
     }
 
     public void submitUpdate() {
-        click($("[name='update']"));
+        click(submitUpdateButton);
     }
 
     public void selectGroup() {
-        click($("[name='selected[]']"));
+        click(selectGroupButton);
     }
 
     public void delete() {
-        click($("[name='delete']"));
+        click(deleteGroupButton);
     }
 }
