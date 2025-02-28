@@ -13,19 +13,24 @@ public class GroupHelper extends BaseHelper {
     private SelenideElement editGroupButton = $("[name='edit']");
     private SelenideElement submitUpdateButton = $("[name='update']");
     private SelenideElement selectGroupButton = $("[name='selected[]']");
+    private SelenideElement groupNameField = $("[name='group_name']");
+    private SelenideElement groupHeaderField = $("[name='group_header']");
+    private SelenideElement groupFooterField = $("[name='group_footer']");
 
     public void createNew() {
         click(newGroupButton);
     }
+
     public void editGroup() {
         click(editGroupButton);
     }
 
     public void fillGroupForm(GroupData group) {
-        type($("[name='group_name']"), group.getName());
-        type($("[name='group_header']"), group.getHeader());
-        type($("[name='group_footer']"), group.getFooter());
+        type(groupNameField, group.getName());
+        type(groupHeaderField, group.getHeader());
+        type(groupFooterField, group.getFooter());
     }
+
     public void submitCreate() {
         click(submitGroupButton);
     }

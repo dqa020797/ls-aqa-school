@@ -6,12 +6,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SessionHelper extends BaseHelper {
 
+    SelenideElement usernameField = $("[name='user']");
+    SelenideElement passwordField = $("[name='pass']");
+    SelenideElement submitLoginButton = $("[type=submit]");
+
     public void login(String username, String password) {
 
-        SelenideElement submitLoginButton = $("[type=submit]");
-
-        type($("[name=user]"), username);
-        type($("[name=pass]"), password);
+        type(usernameField, username);
+        type(passwordField, password);
         click(submitLoginButton);
     }
 }
