@@ -1,4 +1,5 @@
 package ru.stqa.pft.addressbook.pages;
+import static ru.stqa.pft.addressbook.enums.MessageInBoxEnum.GROUP_IS_DELETED;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
 import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
@@ -14,7 +15,11 @@ public class GroupsPage extends BasePage {
     public GroupsPage deleteGroup() {
         app.getGroupHelper()
            .delete();
-        return this;
+
+        app.getGroupHelper()
+           .checkTextFromMsgBox(GROUP_IS_DELETED);
+
+        return pages.groups();
     }
 
     public GroupsPage selectGroup() {

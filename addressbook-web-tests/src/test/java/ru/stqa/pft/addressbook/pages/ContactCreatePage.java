@@ -7,7 +7,8 @@ import static ru.stqa.pft.addressbook.tests.TestBase.app;
 import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 
 public class ContactCreatePage {
-    public ContactCreatePage fillContactForm (ContactData contact) {
+
+    public ContactCreatePage fillContactForm(ContactData contact) {
         app.getContactHelper()
            .fillContactForm(contact);
         return this;
@@ -15,8 +16,11 @@ public class ContactCreatePage {
 
     public ContactsPage submitEnter() {
         app.getContactHelper()
-                .submitEnter();
-        app.getContactHelper().checkTextFromMsgBox(CONTACT_IS_CREATED);
+           .submitEnter();
+
+        app.getContactHelper()
+           .checkTextFromMsgBox(CONTACT_IS_CREATED);
+
         return pages.contacts();
     }
 }

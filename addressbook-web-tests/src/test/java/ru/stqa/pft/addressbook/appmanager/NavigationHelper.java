@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class NavigationHelper extends BaseHelper {
     private SelenideElement goToGroupsPageButton = $("[href='group.php']");
     private SelenideElement goToNewContactPageButton = $("[href='edit.php']");
+    private SelenideElement goToContactsPageButton = $("[href='./']");
 
     public void goToGroupsPage() {
         click(goToGroupsPageButton);

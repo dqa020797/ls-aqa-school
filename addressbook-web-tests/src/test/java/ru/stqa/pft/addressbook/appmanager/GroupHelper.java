@@ -16,9 +16,14 @@ public class GroupHelper extends BaseHelper {
     private SelenideElement groupNameField = $("[name='group_name']");
     private SelenideElement groupHeaderField = $("[name='group_header']");
     private SelenideElement groupFooterField = $("[name='group_footer']");
+    private SelenideElement goBackToGroupsPage = $("[href='group.php']");
 
     public void createNew() {
         click(newGroupButton);
+    }
+
+    public void goBackToGroupsPage() {
+        click(goBackToGroupsPage);
     }
 
     public void editGroup() {
