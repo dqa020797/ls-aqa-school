@@ -7,6 +7,8 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
+    private ContactHelper contactHelper;
+
 
     public void init() {
         initializeHelpers();
@@ -17,6 +19,7 @@ public class ApplicationManager {
         sessionHelper = new SessionHelper();
         groupHelper = new GroupHelper();
         navigationHelper = new NavigationHelper();
+        contactHelper = new ContactHelper();
     }
 
 
@@ -26,6 +29,10 @@ public class ApplicationManager {
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 
     public NavigationHelper getNavigationHelper() {

@@ -1,36 +1,54 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupHelper extends BaseHelper {
 
-    public void checkTextFromMsgBox() {
-        $("[class='msgbox']").shouldHave(text("A new group has been entered into the address book."));
+    private SelenideElement newGroupButton = $("[name='new']");
+    private SelenideElement deleteGroupButton = $("[name='delete']");
+    private SelenideElement submitGroupButton = $("[name='submit']");
+    private SelenideElement editGroupButton = $("[name='edit']");
+    private SelenideElement submitUpdateButton = $("[name='update']");
+    private SelenideElement selectGroupButton = $("[name='selected[]']");
+    private SelenideElement groupNameField = $("[name='group_name']");
+    private SelenideElement groupHeaderField = $("[name='group_header']");
+    private SelenideElement groupFooterField = $("[name='group_footer']");
+    private SelenideElement goBackToGroupsPage = $("[href='group.php']");
+
+    public void createNew() {
+        click(newGroupButton);
     }
 
-    public void fillCreateForm(GroupData group) {
-        click($("[name='new']"));
-        type($("[name='group_name']"), group.getName());
-        type($("[name='group_header']"), group.getHeader());
-        type($("[name='group_footer']"), group.getFooter());
+    public void goBackToGroupsPage() {
+        click(goBackToGroupsPage);
+    }
+
+    public void editGroup() {
+        click(editGroupButton);
+    }
+
+    public void fillGroupForm(GroupData group) {
+        type(groupNameField, group.getName());
+        type(groupHeaderField, group.getHeader());
+        type(groupFooterField, group.getFooter());
     }
 
     public void submitCreate() {
-        click($("[name='submit']"));
+        click(submitGroupButton);
+    }
+
+    public void submitUpdate() {
+        click(submitUpdateButton);
     }
 
     public void selectGroup() {
-        click($("[name='selected[]']"));
+        click(selectGroupButton);
     }
 
-    public void backGroupPage() {
-        click($("[href='group.php']"));
-    }
-
-    public void deleteGroup() {
-        click($("[name='delete']"));
+    public void delete() {
+        click(deleteGroupButton);
     }
 }

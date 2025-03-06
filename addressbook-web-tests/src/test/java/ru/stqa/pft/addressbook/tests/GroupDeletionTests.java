@@ -5,11 +5,10 @@ import org.junit.jupiter.api.Test;
 public class GroupDeletionTests extends TestBase {
 
     @Test
-    public void fillFormTest() {
-        app.getNavigationHelper().goToGroupPage();
-        app.getGroupHelper().selectGroup();
-        app.getGroupHelper().deleteGroup();
-        app.getGroupHelper().backGroupPage();
+    public void deleteGroupTest() {
+        pages.home()
+             .goToGroupsPage()
+             .selectGroup()
+             .deleteGroup();
     }
-
 }
