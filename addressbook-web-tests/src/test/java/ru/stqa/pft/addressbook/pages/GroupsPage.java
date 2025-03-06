@@ -19,6 +19,8 @@ public class GroupsPage extends BasePage {
         app.getGroupHelper()
            .checkTextFromMsgBox(GROUP_IS_DELETED);
 
+        app.getGroupHelper().goBackToGroupsPage();
+
         return pages.groups();
     }
 

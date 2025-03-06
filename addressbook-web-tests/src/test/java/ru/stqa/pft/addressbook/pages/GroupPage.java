@@ -22,6 +22,8 @@ public class GroupPage {
         app.getGroupHelper()
            .checkTextFromMsgBox(GROUP_IS_UPDATED);
 
+        app.getGroupHelper().goBackToGroupsPage();
+
         return pages.groups();
     }
 }
