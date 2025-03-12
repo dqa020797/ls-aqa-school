@@ -18,7 +18,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenide.version>7.6.1</selenide.version>
+        <selenide.version>7.7.3</selenide.version>
         <junit-jupiter.version>5.11.3</junit-jupiter.version>
     </properties>
 
