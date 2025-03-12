@@ -12,6 +12,7 @@ public class ApplicationManager {
 
     public void init() {
         initializeHelpers();
+        Selenide.open("http://localhost/addressbook/");
     }
 
     private void initializeHelpers() {
@@ -20,6 +21,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper();
         contactHelper = new ContactHelper();
     }
+
 
     public void stop() {
         Selenide.closeWebDriver();
@@ -39,7 +41,5 @@ public class ApplicationManager {
 
     public SessionHelper getSessionHelper() {
         return sessionHelper;
-    }
-
     }
 }
