@@ -1,14 +1,21 @@
 package ru.stqa.pft.addressbook.config;
 
+import org.aeonbits.owner.Config;
 import ru.stqa.pft.addressbook.enums.Browser;
 
-public class WebDriverConfig {
-    public String getBaseUrl() {
-        return "https://github.com";
-    }
+import java.net.URL;
 
-    public Browser getBrowser() {
-        String browser = System.getProperty("browser");
-        return Browser.valueOf(browser);
-    }
+public interface WebDriverConfig extends Config {
+
+    @Key("baseUrl")
+    @DefaultValue("http://localhost/addressbook/")
+    String getBaseUrl(); // Изменил на локальный сайт
+
+    @Key("browser")
+    @DefaultValue("CHROME")
+    Browser getBrowser();
+
+    @Key("remoteUrl")
+    @DefaultValue("http://localhost:4444/wd/hub")
+    URL getRemoteUrl(); // Оставим значение для удаленного запуска
 }

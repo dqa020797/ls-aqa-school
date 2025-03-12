@@ -7,17 +7,17 @@ import ru.stqa.pft.addressbook.config.WebDriverProvider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SeleniumTest {
+public class SelenideTest {
     private WebDriver driver;
 
-    public SeleniumTest() {
+    public SelenideTest() {
         this.driver = new WebDriverProvider().get();
     }
 
     @Test
     public void testGithubTitle() {
         String title = driver.getTitle();
-        assertEquals("GitHub: Where the world builds software · GitHub", title);
+        assertEquals("Address book", title);
     }
 
     @AfterEach

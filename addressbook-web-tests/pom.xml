@@ -28,6 +28,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.7.1</version>
@@ -44,6 +51,7 @@
             <version>7.7.2</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 </project>
