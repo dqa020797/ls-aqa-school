@@ -1,9 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import ru.stqa.pft.addressbook.config.WebDriverConfig;
-import ru.stqa.pft.addressbook.enums.Browser;
 
 public class ApplicationManager {
 
@@ -12,38 +9,9 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
 
-    private WebDriverConfig config;
-
-    public ApplicationManager() {
-        config = new WebDriverConfig();
-    }
 
     public void init() {
-        configureBrowser();
         initializeHelpers();
-        Selenide.open(getBaseUrl());
-    }
-
-    private void configureBrowser() {
-        Browser browser = config.getBrowser();
-        System.out.println("Configuring browser: " + browser);
-
-        switch (browser) {
-            case FIREFOX:
-                Configuration.browser = "firefox";
-                break;
-            case CHROME:
-            default:
-                Configuration.browser = "chrome";
-                break;
-        }
-        
-        Configuration.headless = false;
-        Configuration.timeout = 10000;
-    }
-
-    private String getBaseUrl() {
-        return System.getProperty("baseUrl", "http://localhost/addressbook/");
     }
 
     private void initializeHelpers() {
@@ -73,8 +41,5 @@ public class ApplicationManager {
         return sessionHelper;
     }
 
-    public static void main(String[] args) {
-        ApplicationManager app = new ApplicationManager();
-        app.init();
     }
 }

@@ -12,6 +12,10 @@ public class WebDriverProvider implements Supplier<WebDriver> {
 
     private WebDriverConfig config;
 
+    public WebDriverProvider() {
+        this.config = new WebDriverConfig();
+    }
+
     @Override
     public WebDriver get() {
         WebDriver driver = createWebDriver();
@@ -20,16 +24,14 @@ public class WebDriverProvider implements Supplier<WebDriver> {
     }
 
     private WebDriver createWebDriver() {
-        Browser browser = config.getBrowser();
-        switch (browser) {
-            case CHROME:
-                WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
-            case FIREFOX:
-                WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
-            default:
-                throw new RuntimeException("No such browser");
+        if (config.getBrowser().equals(Browser.CHROME)) {
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
         }
+        if (config.getBrowser().equals(Browser.FIREFOX)) {
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+        }
+        throw new RuntimeException("No such browser");
     }
 }
