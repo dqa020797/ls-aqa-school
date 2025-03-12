@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 public class GroupRedactionTest extends TestBase {
 
     @Test
-    void GroupRedactionTest() {
+    void groupRedactionTest() {
         pages.home()
              .goToGroupsPage()
              .selectGroup()
