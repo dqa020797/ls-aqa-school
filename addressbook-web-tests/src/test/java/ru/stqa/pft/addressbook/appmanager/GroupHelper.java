@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class GroupHelper extends BaseHelper {
 
@@ -51,4 +52,10 @@ public class GroupHelper extends BaseHelper {
     public void delete() {
         click(deleteGroupButton);
     }
+
+    public boolean isGroupPresent() {
+        return $$("[name='selected[]']").size() > 0;
+    }
+
+
 }
