@@ -39,11 +39,10 @@ public class GroupsPage extends BasePage {
         return pages.group();
     }
 
-    public void ensureGroupExists() {
-        if (!app.getGroupHelper()
-                .isGroupPresent()) {
+    public void ensureGroupExists(GroupData group) {
+        if (!app.getGroupHelper().isGroupPresent()) {
             createNewGroup()
-                    .fillGroupForm(new GroupData("Test Group", "Test Header", "Test Footer"))
+                    .fillGroupForm(group)
                     .submitCreate();
         }
     }

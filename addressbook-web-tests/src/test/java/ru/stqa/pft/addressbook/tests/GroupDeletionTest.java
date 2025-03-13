@@ -8,9 +8,11 @@ public class GroupDeletionTest extends TestBase {
 
     @BeforeEach
     public void ensurePreconditions() {
+        GroupData testGroup = new GroupData("Test Group", "Test Header", "Test Footer");
+
         pages.home()
              .goToGroupsPage()
-             .ensureGroupExists();
+             .ensureGroupExists(testGroup);
     }
 
     @Test
