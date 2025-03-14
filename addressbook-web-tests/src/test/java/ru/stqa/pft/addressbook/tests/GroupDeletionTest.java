@@ -12,7 +12,7 @@ public class GroupDeletionTest extends TestBase {
 
         pages.home()
              .goToGroupsPage()
-             .ensureGroupExists(testGroup);
+             .createGroupIfNotExist(testGroup);
     }
 
     @Test

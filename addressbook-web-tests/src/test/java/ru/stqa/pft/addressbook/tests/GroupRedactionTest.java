@@ -13,7 +13,7 @@ public class GroupRedactionTest extends TestBase {
 
         pages.home()
              .goToGroupsPage()
-             .ensureGroupExists(testGroup);
+             .createGroupIfNotExist(testGroup);
     }
 
     @Test

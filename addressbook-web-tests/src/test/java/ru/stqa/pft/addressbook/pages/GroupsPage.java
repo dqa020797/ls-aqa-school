@@ -39,8 +39,8 @@ public class GroupsPage extends BasePage {
         return pages.group();
     }
 
-    public void ensureGroupExists(GroupData group) {
-        if (!app.getGroupHelper().isGroupPresent()) {
+    public void createGroupIfNotExist(GroupData group) {
+        if (!app.getGroupHelper().hasAtLeastOneGroup()) {
             createNewGroup()
                     .fillGroupForm(group)
                     .submitCreate();
