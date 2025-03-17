@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
 public class ApplicationManager {
@@ -9,9 +10,9 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
 
-
     public void init() {
         initializeHelpers();
+        Configuration.browser = System.getProperty("selenide.browser", "chrome");
         Selenide.open("http://localhost/addressbook/");
     }
 

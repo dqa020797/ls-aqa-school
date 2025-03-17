@@ -1,9 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class GroupHelper extends BaseHelper {
 
@@ -17,6 +19,7 @@ public class GroupHelper extends BaseHelper {
     private SelenideElement groupHeaderField = $("[name='group_header']");
     private SelenideElement groupFooterField = $("[name='group_footer']");
     private SelenideElement goBackToGroupsPage = $("[href='group.php']");
+    private ElementsCollection groupsList = (ElementsCollection) $("[name='selected[]']");
 
     public void createNew() {
         click(newGroupButton);
@@ -51,4 +54,12 @@ public class GroupHelper extends BaseHelper {
     public void delete() {
         click(deleteGroupButton);
     }
+
+    public boolean hasAtLeastOneGroup() {
+        return groupsList.size() > 0;
+    }
+
+
+
+
 }

@@ -4,8 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-
-public class GroupRedactionTest extends TestBase {
+public class GroupDeletionTest extends TestBase {
 
     @BeforeEach
     public void ensurePreconditions() {
@@ -17,12 +16,10 @@ public class GroupRedactionTest extends TestBase {
     }
 
     @Test
-    void groupRedactionTest() {
+    public void deleteGroupTest() {
         pages.home()
              .goToGroupsPage()
              .selectGroup()
-             .editGroup()
-             .editForm(new GroupData("Test Group Edit", "Test Header Edit", "Test Footer Edit"))
-             .submitUpdate();
+             .deleteGroup();
     }
 }
