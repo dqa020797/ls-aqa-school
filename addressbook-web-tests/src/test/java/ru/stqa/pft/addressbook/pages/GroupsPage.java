@@ -27,9 +27,9 @@ public class GroupsPage extends BasePage {
         return pages.groups();
     }
 
-    public GroupsPage selectGroup() {
+    public GroupsPage selectGroup(int index) {
         app.getGroupHelper()
-           .selectGroup();
+           .getGroupList();
         return this;
     }
 

@@ -10,6 +10,7 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
 
+
     public void init() {
         initializeHelpers();
         Configuration.browser = System.getProperty("selenide.browser", "chrome");
@@ -23,7 +24,6 @@ public class ApplicationManager {
         contactHelper = new ContactHelper();
     }
 
-
     public void stop() {
         Selenide.closeWebDriver();
     }
@@ -31,7 +31,6 @@ public class ApplicationManager {
     public GroupHelper getGroupHelper() {
         return groupHelper;
     }
-
     public ContactHelper getContactHelper() {
         return contactHelper;
     }

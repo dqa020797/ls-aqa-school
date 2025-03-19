@@ -8,6 +8,11 @@
     <artifactId>addressbook-web-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <module>ls-java-core</module>
+        <module>addressbook-web-tests</module>
+    </modules>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -18,12 +23,6 @@
         <owner.version>1.0.4</owner.version>
         <webdrivermanager.version>5.9.3</webdrivermanager.version>
     </properties>
-
-    <parent>
-        <groupId>ru.ls.qa.school</groupId>
-        <artifactId>ls-aqa-school</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <dependencies>
         <dependency>
@@ -45,6 +44,12 @@
             <artifactId>owner</artifactId>
             <version>${owner.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.9</version>
         </dependency>
 
         <dependency>
