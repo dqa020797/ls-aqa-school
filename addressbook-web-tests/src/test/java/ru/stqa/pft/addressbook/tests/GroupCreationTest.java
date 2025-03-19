@@ -1,32 +1,43 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.refresh;
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GroupCreationTest extends TestBase {
 
     @Test
     void groupCreationTest() {
-        pages.home()
-             .goToGroupsPage();
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        System.out.println("Before size: " + before.size());
+        var page = pages.home()
+                        .goToGroupsPage();
+        List<GroupData> before = app.getGroupHelper()
+                                    .getGroupList();
+        GroupData newGroup = new GroupData("Test Group", "Test Header", "Test Footer");
 
-        GroupData newGroup = new GroupData( "Test Group", "Test Header", "Test Footer");
-        pages.home()
-             .goToGroupsPage()
-             .createNewGroup()
-             .fillGroupForm(newGroup)
-             .submitCreate();
+        before.add(newGroup);
 
-        List<GroupData> after = app.getGroupHelper().getGroupList();
-        System.out.println("After size: " + after.size());
+        page.createNewGroup()
+            .fillGroupForm(newGroup)
+            .submitCreate();
 
-        assertEquals(before.size() + 1, after.size(), "Количество групп после добавления не совпадает");
+        List<GroupData> after = app.getGroupHelper()
+                                   .getGroupList();
+        assertThat(before.size())
+                .as("Количество групп увеличилось на 1")
+                .isEqualTo(after.size());
+
+        assertThat(before)
+                .as("В писке групп появилась созданная, а остальные группы не изменились")
+                .usingRecursiveComparison()
+                .ignoringCollectionOrder()
+                //.ignoringFields("", "")
+                .isEqualTo(after);
+
     }
 }
