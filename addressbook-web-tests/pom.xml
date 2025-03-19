@@ -8,21 +8,21 @@
     <artifactId>addressbook-web-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <modules>
-        <module>ls-java-core</module>
-        <module>addressbook-web-tests</module>
-    </modules>
-
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <junit.version>5.11.4</junit.version>
         <selenide.version>7.7.2</selenide.version>
         <owner.version>1.0.4</owner.version>
         <webdrivermanager.version>5.9.3</webdrivermanager.version>
     </properties>
+
+    <parent>
+        <groupId>ru.ls.qa.school</groupId>
+        <artifactId>ls-aqa-school</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
         <dependency>

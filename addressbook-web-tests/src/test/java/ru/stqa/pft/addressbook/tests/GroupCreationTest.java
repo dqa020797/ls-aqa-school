@@ -12,6 +12,8 @@ public class GroupCreationTest extends TestBase {
 
     @Test
     void groupCreationTest() {
+        pages.home()
+             .goToGroupsPage();
         List<GroupData> before = app.getGroupHelper().getGroupList();
         System.out.println("Before size: " + before.size());
 
