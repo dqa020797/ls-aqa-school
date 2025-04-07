@@ -27,7 +27,6 @@ public class SkyScrapper {
         return total;
     }
 
-    // Метод для самопроверки
     public static int testCalculateGain(SkyScrapper s) {
         int x = s.getFirstFloorFlatSale();
         int m = s.getFreqIncrease();

@@ -1,5 +1,9 @@
 package ru.stqa.pft.addressbook.model;
 
+import lombok.Data;
+
+@Data
+
 public class GroupData {
     private final String name;
     private final String header;
