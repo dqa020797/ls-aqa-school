@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import java.util.List;
@@ -24,6 +23,7 @@ public class GroupCreationTest extends TestBase {
 
         List<GroupData> after = app.getGroupHelper()
                                    .getGroupList();
+
         assertThat(before.size())
                 .as("Количество групп увеличилось на 1")
                 .isEqualTo(after.size());
