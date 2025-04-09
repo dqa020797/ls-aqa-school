@@ -4,6 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class GroupDeletionTest extends TestBase {
 
     @BeforeEach
@@ -17,9 +21,22 @@ public class GroupDeletionTest extends TestBase {
 
     @Test
     public void deleteGroupTest() {
-        pages.home()
-             .goToGroupsPage()
-             .selectGroup()
+        pages.home().goToGroupsPage();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+
+        if (before.isEmpty()) {
+            return;
+        }
+
+        pages.groups()
+             .selectGroup(0)
              .deleteGroup();
+
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+
+        assertEquals(before.size() - 1, after.size(), "Размеры списка групп после удаления не совпадают");
+
+        before.remove(0);
+        assertEquals(before, after, "Группы после удаления не совпадают с ожидаемыми");
     }
 }

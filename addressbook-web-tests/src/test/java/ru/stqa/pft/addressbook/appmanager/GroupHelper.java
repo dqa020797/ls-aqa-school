@@ -4,6 +4,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -19,7 +22,7 @@ public class GroupHelper extends BaseHelper {
     private SelenideElement groupHeaderField = $("[name='group_header']");
     private SelenideElement groupFooterField = $("[name='group_footer']");
     private SelenideElement goBackToGroupsPage = $("[href='group.php']");
-    private ElementsCollection groupsList = (ElementsCollection) $("[name='selected[]']");
+    private ElementsCollection groupsList = $$("[name='selected[]']");
 
     public void createNew() {
         click(newGroupButton);
@@ -47,10 +50,6 @@ public class GroupHelper extends BaseHelper {
         click(submitUpdateButton);
     }
 
-    public void selectGroup() {
-        click(selectGroupButton);
-    }
-
     public void delete() {
         click(deleteGroupButton);
     }
@@ -59,7 +58,18 @@ public class GroupHelper extends BaseHelper {
         return groupsList.size() > 0;
     }
 
+    public int geGroupCount() {
+        return groupsList.size();
+    }
 
+    public List<GroupData> getGroupList() {
+        List<GroupData> groups = new ArrayList<>();
+        ElementsCollection elements = $$("span.group");
 
-
+        for (SelenideElement element : elements) {
+            String name = element.getText();
+            groups.add(new GroupData(name, null, null));
+        }
+        return groups;
+    }
 }

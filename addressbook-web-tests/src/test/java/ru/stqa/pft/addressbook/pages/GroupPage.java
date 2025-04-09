@@ -10,7 +10,7 @@ import static ru.stqa.pft.addressbook.tests.TestBase.pages;
 public class GroupPage {
 
     public GroupPage editForm (GroupData group) {
-        app.getGroupHelper()
+        app. getGroupHelper()
            .fillGroupForm(group);
         return this;
     }

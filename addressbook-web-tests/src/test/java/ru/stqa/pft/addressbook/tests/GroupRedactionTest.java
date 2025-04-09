@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.List;
+
 
 public class GroupRedactionTest extends TestBase {
 
@@ -20,7 +22,7 @@ public class GroupRedactionTest extends TestBase {
     void groupRedactionTest() {
         pages.home()
              .goToGroupsPage()
-             .selectGroup()
+             .selectGroup(0)
              .editGroup()
              .editForm(new GroupData("Test Group Edit", "Test Header Edit", "Test Footer Edit"))
              .submitUpdate();
