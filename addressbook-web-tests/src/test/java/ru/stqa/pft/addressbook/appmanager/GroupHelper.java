@@ -55,10 +55,10 @@ public class GroupHelper extends BaseHelper {
     }
 
     public boolean hasAtLeastOneGroup() {
-        return groupsList.size() > 0;
+        return !groupsList.isEmpty();
     }
 
-    public int geGroupCount() {
+    public int getGroupCount() {
         return groupsList.size();
     }
 

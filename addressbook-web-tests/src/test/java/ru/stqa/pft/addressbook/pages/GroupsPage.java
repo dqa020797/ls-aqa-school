@@ -27,7 +27,9 @@ public class GroupsPage extends BasePage {
         return pages.groups();
     }
 
-    public GroupsPage selectGroup(int index) {
+    //TODO этот метод не выполняет свою задачу, поэтому тест падает
+    //TODO Метод должен принимать GroupData group а уже в helper-метод по старинке передавать id группы
+    public GroupsPage selectGroup(GroupData group) {
         app.getGroupHelper()
            .getGroupList();
         return this;
