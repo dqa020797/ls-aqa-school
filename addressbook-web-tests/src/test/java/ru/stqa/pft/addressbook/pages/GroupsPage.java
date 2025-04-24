@@ -31,8 +31,8 @@ public class GroupsPage extends BasePage {
     //TODO Метод должен принимать GroupData group а уже в helper-метод по старинке передавать id группы
     public GroupsPage selectGroup(GroupData group) {
         app.getGroupHelper()
-           .getGroupList();
-        return this;
+                .selectGroupById(group.getId());
+        return pages.groups();
     }
 
     public GroupPage editGroup() {
@@ -48,5 +48,4 @@ public class GroupsPage extends BasePage {
                     .submitCreate();
         }
     }
-
 }

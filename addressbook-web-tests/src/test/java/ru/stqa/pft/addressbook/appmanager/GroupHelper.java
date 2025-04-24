@@ -54,12 +54,14 @@ public class GroupHelper extends BaseHelper {
         click(deleteGroupButton);
     }
 
-    public boolean hasAtLeastOneGroup() {
-        return !groupsList.isEmpty();
+    public void delete(GroupData group) {
+        selectGroupById(group.getId());
+        delete();
+        goBackToGroupsPage();
     }
 
-    public int getGroupCount() {
-        return groupsList.size();
+    public boolean hasAtLeastOneGroup() {
+        return !groupsList.isEmpty();
     }
 
     public List<GroupData> getGroupList() {
@@ -67,9 +69,16 @@ public class GroupHelper extends BaseHelper {
         ElementsCollection elements = $$("span.group");
 
         for (SelenideElement element : elements) {
-            String name = element.getText();
-            groups.add(new GroupData(name, null, null));
+            int id = Integer.parseInt(element.$("input").getAttribute("value"));
+            String name = element.getOwnText().trim(); // получаем только текст, без вложенных элементов
+            GroupData group = new GroupData(name, null, null);
+            group.setId(id);
+            groups.add(group);
         }
         return groups;
+    }
+
+    public void selectGroupById(int id) {
+        $("[name='selected[]'][value='" + id + "']").click();
     }
 }
