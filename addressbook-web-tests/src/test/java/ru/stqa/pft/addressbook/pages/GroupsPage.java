@@ -35,6 +35,12 @@ public class GroupsPage extends BasePage {
         return pages.groups();
     }
 
+    public GroupsPage selectGroup() {
+        app.getGroupHelper()
+                .selectGroup();
+        return this;
+    }
+
     public GroupPage editGroup() {
         app.getGroupHelper()
            .editGroup();

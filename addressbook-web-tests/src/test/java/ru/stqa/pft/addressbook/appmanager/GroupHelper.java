@@ -53,13 +53,9 @@ public class GroupHelper extends BaseHelper {
     public void delete() {
         click(deleteGroupButton);
     }
-
-    public void delete(GroupData group) {
-        selectGroupById(group.getId());
-        delete();
-        goBackToGroupsPage();
+    public void selectGroup() {
+        click(selectGroupButton);
     }
-
     public boolean hasAtLeastOneGroup() {
         return !groupsList.isEmpty();
     }
