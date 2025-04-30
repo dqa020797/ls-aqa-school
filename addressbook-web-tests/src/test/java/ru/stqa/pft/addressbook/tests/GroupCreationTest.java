@@ -2,7 +2,9 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
+
 import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GroupCreationTest extends TestBase {

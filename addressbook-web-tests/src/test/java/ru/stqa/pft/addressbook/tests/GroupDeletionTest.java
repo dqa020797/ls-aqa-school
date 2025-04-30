@@ -23,20 +23,17 @@ public class GroupDeletionTest extends TestBase {
     public void deleteGroupTest() {
         pages.home().goToGroupsPage();
         List<GroupData> before = app.getGroupHelper().getGroupList();
-
-        if (before.isEmpty()) {
-            return;
-        }
+        GroupData deleted = before.iterator().next();
 
         pages.groups()
-             .selectGroup(0)
-             .deleteGroup();
+             .selectGroup(deleted)
+                .deleteGroup();
 
         List<GroupData> after = app.getGroupHelper().getGroupList();
 
         assertEquals(before.size() - 1, after.size(), "Размеры списка групп после удаления не совпадают");
 
-        before.remove(0);
+        before.remove(deleted);
         assertEquals(before, after, "Группы после удаления не совпадают с ожидаемыми");
     }
 }
