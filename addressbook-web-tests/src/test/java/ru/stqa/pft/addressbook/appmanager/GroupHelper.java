@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,15 +54,17 @@ public class GroupHelper extends BaseHelper {
     public void delete() {
         click(deleteGroupButton);
     }
+
     public void selectGroup() {
         click(selectGroupButton);
     }
+
     public boolean hasAtLeastOneGroup() {
         return !groupsList.isEmpty();
     }
 
-    public List<GroupData> getGroupList() {
-        List<GroupData> groups = new ArrayList<>();
+    public Groups getGroupList() {
+        Groups groups = new Groups();
         ElementsCollection elements = $$("span.group");
 
         for (SelenideElement element : elements) {

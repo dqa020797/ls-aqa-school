@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -12,30 +13,38 @@ public class GroupCreationTest extends TestBase {
     @Test
     void groupCreationTest() {
         var page = pages.home()
-                        .goToGroupsPage();
-        List<GroupData> before = app.getGroupHelper()
-                                    .getGroupList();
+                .goToGroupsPage();
+        Groups before = app.getGroupHelper()
+                .getGroupList();
         GroupData newGroup = new GroupData("a", "a", "Test Footer1");
 
-        before.add(newGroup);
-
         page.createNewGroup()
-            .fillGroupForm(newGroup)
-            .submitCreate();
+                .fillGroupForm(newGroup)
+                .submitCreate();
 
-        List<GroupData> after = app.getGroupHelper()
-                                   .getGroupList();
+        app.getGroupHelper().goBackToGroupsPage();
 
-        assertThat(before.size())
+        Groups after = app.getGroupHelper()
+                .getGroupList();
+
+        assertThat(after.size())
                 .as("Количество групп увеличилось на 1")
-                .isEqualTo(after.size());
+                .isEqualTo(before.size() + 1);
 
-        assertThat(before)
-                .as("В cписке групп появилась созданная, а остальные группы не изменились")
+        int newId = after.stream()
+                .mapToInt(GroupData::getId)
+                .max()
+                .orElseThrow();
+        newGroup.setId(newId);
+
+        Groups expected = before.withAdded(newGroup);
+
+        assertThat(after)
+                .as("Проверяем, что новая группа добавлена")
                 .usingRecursiveComparison()
                 .ignoringCollectionOrder()
                 .ignoringFields("header", "footer")
-                .isEqualTo(after);
+                .isEqualTo(expected);
 
     }
 }
