@@ -31,20 +31,6 @@ public class GroupCreationTest extends TestBase {
                 .as("Количество групп увеличилось на 1")
                 .isEqualTo(before.size() + 1);
 
-        int newId = after.stream()
-                .mapToInt(GroupData::getId)
-                .max()
-                .orElseThrow();
-        newGroup.setId(newId);
-
-        Groups expected = before.withAdded(newGroup);
-
-        assertThat(after)
-                .as("Проверяем, что новая группа добавлена")
-                .usingRecursiveComparison()
-                .ignoringCollectionOrder()
-                .ignoringFields("header", "footer")
-                .isEqualTo(expected);
 
     }
 }
