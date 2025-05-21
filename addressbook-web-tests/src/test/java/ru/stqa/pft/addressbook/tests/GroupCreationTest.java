@@ -27,10 +27,41 @@ public class GroupCreationTest extends TestBase {
         Groups after = app.getGroupHelper()
                 .getGroupList();
 
+        int count = 0;
+        GroupData createdGroup = null;
+
+        for (GroupData groupAfter : after){
+            boolean match = false;
+            for (GroupData groupBefore : before){
+                match = groupAfter.equals(groupBefore);
+                if (match)
+                    break;
+            }
+            if (!match){
+                count++;
+                createdGroup = groupAfter;
+            }
+
+        }
+
         assertThat(after.size())
                 .as("Количество групп увеличилось на 1")
                 .isEqualTo(before.size() + 1);
 
+        assertThat(count)
+                .isEqualTo(1);
 
+        assertThat(createdGroup)
+                .usingRecursiveComparison()
+                        .ignoringFields("header", "footer", "id")
+                .isEqualTo(newGroup);
+
+
+        assertThat(after.without(createdGroup))
+                .as("В списке групп появилась созданная, а остальные группы не изменились")
+                .usingRecursiveComparison()
+                //.ignoringCollectionOrder()
+                .ignoringFields("header", "footer")
+                .isEqualTo(before);
     }
 }
