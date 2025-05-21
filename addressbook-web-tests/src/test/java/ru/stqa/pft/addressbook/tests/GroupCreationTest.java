@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GroupCreationTest extends TestBase {
@@ -13,31 +11,29 @@ public class GroupCreationTest extends TestBase {
     @Test
     void groupCreationTest() {
         var page = pages.home()
-                .goToGroupsPage();
+                        .goToGroupsPage();
         Groups before = app.getGroupHelper()
-                .getGroupList();
+                           .getGroupList();
         GroupData newGroup = new GroupData("a", "a", "Test Footer1");
 
         page.createNewGroup()
-                .fillGroupForm(newGroup)
-                .submitCreate();
-
-        app.getGroupHelper().goBackToGroupsPage();
+            .fillGroupForm(newGroup)
+            .submitCreate();
 
         Groups after = app.getGroupHelper()
-                .getGroupList();
+                          .getGroupList();
 
         int count = 0;
         GroupData createdGroup = null;
 
-        for (GroupData groupAfter : after){
+        for (GroupData groupAfter : after) {
             boolean match = false;
-            for (GroupData groupBefore : before){
+            for (GroupData groupBefore : before) {
                 match = groupAfter.equals(groupBefore);
                 if (match)
                     break;
             }
-            if (!match){
+            if (!match) {
                 count++;
                 createdGroup = groupAfter;
             }
@@ -53,7 +49,7 @@ public class GroupCreationTest extends TestBase {
 
         assertThat(createdGroup)
                 .usingRecursiveComparison()
-                        .ignoringFields("header", "footer", "id")
+                .ignoringFields("header", "footer", "id")
                 .isEqualTo(newGroup);
 
 
